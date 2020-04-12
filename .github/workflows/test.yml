@@ -1,10 +1,10 @@
 name: Test
 on:
   pull_request:
-  push:
-    branches:
-      - master
-      - 'renovate/*'
+#  push:
+#    branches:
+#      - master
+#      - 'renovate/*'
 jobs:
   test:
     runs-on: ubuntu-latest
