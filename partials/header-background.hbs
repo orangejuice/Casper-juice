@@ -43,8 +43,26 @@ with a `no-image` class so we can style it accordingly.
 {{else}}
 
 <div class="outer site-header-background no-image">
-<div id="stars"></div>
-<div id="stars2"></div>
-<div id="stars3"></div>
 
 {{/if}}
+
+    <div class="inner">
+        {{> "site-nav"}}
+
+        <div class="site-header-content">
+            <h1 class="site-title">
+                {{#if @site.logo}}
+                    <img class="site-logo" src="{{img_url @site.logo size="l"}}" alt="{{@site.title}}" />
+                {{else}}
+                    {{@site.title}}
+                {{/if}}
+            </h1>
+            <h2 class="site-description">{{@site.description}}</h2>
+        </div>
+    </div>
+
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>
+
+</div>
