@@ -116,6 +116,7 @@ body {
     color: #fff;
     background: color(var(--darkgrey) l(-5%)) no-repeat center center;
     background-size: cover;
+    overflow-y: hidden;
 }
 
 .site-header-background:before {
