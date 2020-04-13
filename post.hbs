@@ -5,9 +5,9 @@ into the {body} of the default.hbs template --}}
 
 {{#post}}
     {{#has tag="#zh"}}
-        <html lang="zh">
+        {{#contentFor "lang"}}zh{{/contentFor}}
     {{else}}
-        <html lang="en">
+        {{#contentFor "lang"}}{{@site.lang}}{{/contentFor}}
     {{/has}}
 {{/post}}
 
