@@ -84,6 +84,7 @@ ol.toc-list {
     margin: 0;
 }
 
+/* Offset headings from fixed header */
 .post-content h2::before,
 .post-content h3::before {
     display: block;
@@ -91,4 +92,13 @@ ol.toc-list {
     height: 84px;
     margin-top: -84px;
     visibility: hidden;
+}
+
+/* Adjust content wrapper */
+.post-content {
+    display: block;
+}
+
+.post-full-content pre {
+    max-width: 0;
 }
