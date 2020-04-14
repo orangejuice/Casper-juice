@@ -1,0 +1,5 @@
+name: ghost-theme
+image: node:10
+command:
+- bash
+workdir: /usr/src/app
