@@ -3,6 +3,12 @@
 {{!-- The tag above means: insert everything in this file
 into the {body} of the default.hbs template --}}
 
+{{#contentFor "stylesheet"}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/themes/prism-tomorrow.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/plugins/line-numbers/prism-line-numbers.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.css"/>
+{{/contentFor}}
+
 <header class="site-header">
     {{> site-header}}
 </header>
@@ -104,6 +110,9 @@ into the {body} of the default.hbs template --}}
             {{/if}}
 
             <section class="post-full-content">
+                <aside class="toc-container">
+                    <div class="toc"></div>
+                </aside>
                 <div class="post-content">
                     {{content}}
                 </div>
@@ -212,6 +221,26 @@ into the {body} of the default.hbs template --}}
                 $this.children('.author-card').removeClass('hovered');
             }, 800);
         });
+    });
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/prism.min.js"
+        integrity="sha256-3teItwIfMuVB74Alnxw/y5HAZ2irOsCULFff3EgbtEs=" crossorigin="anonymous"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('pre[class*=language-]').forEach(function(node) {
+            node.classList.add('line-numbers');
+        });
+        Prism.highlightAll();
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        tocSelector: '.toc',
+        contentSelector: '.post-content',
+        hasInnerContainers: true
     });
 </script>
 {{/contentFor}}
