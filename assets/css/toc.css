@@ -83,3 +83,12 @@ body {
 ol.toc-list {
     margin: 0;
 }
+
+.post-content h2::before,
+.post-content h3::before {
+    display: block;
+    content: " ";
+    height: 84px;
+    margin-top: -84px;
+    visibility: hidden;
+}
