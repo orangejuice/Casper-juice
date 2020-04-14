@@ -3,14 +3,6 @@
 {{!-- The tag above means: insert everything in this file
 into the {body} of the default.hbs template --}}
 
-{{#post}}
-    {{#has tag="#zh"}}
-        {{#contentFor "lang"}}zh{{/contentFor}}
-    {{else}}
-        {{#contentFor "lang"}}{{@site.lang}}{{/contentFor}}
-    {{/has}}
-{{/post}}
-
 <header class="site-header">
     {{> site-header}}
 </header>
