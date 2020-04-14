@@ -405,8 +405,8 @@ body {
     box-sizing: border-box;
 }
 
-body {
-    background: -webkit-linear-gradient(bottom, #ffa191, #ffc247);
+.page-template .site-main{
+    background: -webkit-linear-gradient(bottom, #ffa191, #ffc247) !important;
     background: linear-gradient(to top, #ffa191, #ffc247);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
