@@ -53,8 +53,6 @@ into the {body} of the default.hbs template --}}
                     <div class="post-sidebar-container">
                         <span class="toc-title">{{t "Contents"}}</span>
                         <div class="toc"></div>
-                        <div id="progress" class="progress">
-                        </div>
                     </div>
                 </aside>
                 <div class="post-content">
@@ -77,7 +75,8 @@ into the {body} of the default.hbs template --}}
             --}}
 
         </article>
-
+    </div>
+    <div id="progress" class="progress">
     </div>
 </main>
 
@@ -196,7 +195,7 @@ into the {body} of the default.hbs template --}}
         easing: 'bounce', // easeInOut
         strokeWidth: 10,
         from: {color: '#FFEA82', a: 0},
-        to: {color: '#ED6A5A', a: 1},
+        to: {color: '#ED664C', a: 1},
         // Set default step function for all animate calls
         step: function (state, circle) {
             circle.path.setAttribute('stroke', state.color);
@@ -205,13 +204,18 @@ into the {body} of the default.hbs template --}}
 
     const updateProgress = function () {
         const scroll = $(window).scrollTop();
-        const height = $('article').height() - $(window).height();
+        const height = $('main').height();//$(window).height();
 
-        bar.set(scroll / height);// bar.animate(scroll / height);
+        if(scroll<=height){
+            bar.set(scroll / height);// bar.animate(scroll / height);
+        }
     };
     $(window).scroll(updateProgress);
 
-    $('.progress').style.top = $(window).height() - 30 - 120
+    $(document).ready(function () {
+        $('.progress').style.top = $(window).height() - 30 - 120;
+
+    })
 
     // $(function(){
     //     var progressPath = document.querySelector('.progress path');

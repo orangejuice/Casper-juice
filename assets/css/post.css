@@ -147,4 +147,7 @@ ol.toc-list {
     .post-full-content {
         grid-template-columns: none;
     }
+    .progress {
+        display: none;
+    }
 }
