@@ -27,11 +27,9 @@ into the {body} of the default.hbs template --}}
 
                 <div class="post-full-meta">
                     {{#if primary_tag}}
-                        <section class="post-full-tags">
-                            {{#primary_tag}}
-                                <a href="{{url}}">{{name}}</a>
-                            {{/primary_tag}}
-                        </section>
+                        {{#primary_tag}}
+                        <a href="{{url}}">{{name}}</a>
+                        {{/primary_tag}}
                         <span class="bull">&bull;</span>
                     {{/if}}
 
@@ -53,14 +51,6 @@ into the {body} of the default.hbs template --}}
             <section class="post-full-content">
                 <aside class="toc-container">
                     <div class="toc"></div>
-                </aside>
-                <aside>
-                    <button class="m-icon-button filled in-share progress js-scrolltop" aria-label="Scroll to top">
-                        <span class="icon-arrow-top"></span>
-                        <svg>
-                            <circle class="progress-ring__circle js-progress" fill="transparent" r="0" />
-                        </svg>
-                    </button>
                 </aside>
                 <div class="post-content">
                     {{content}}
