@@ -49,9 +49,14 @@ into the {body} of the default.hbs template --}}
             <!-- feature image part -->
 
             <section class="post-full-content">
-                <aside class="toc-container">
-                    <span class="toc-container-title">{{t "Contents"}}</span>
-                    <div class="toc"></div>
+                <aside class="post-sidebar">
+                    <div class="toc-container">
+                        <span class="toc-title">{{t "Contents"}}</span>
+                        <div class="toc"></div>
+                    </div>
+                    <div class="scroll-to-top">
+
+                    </div>
                 </aside>
                 <div class="post-content">
                     {{content}}
