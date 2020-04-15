@@ -9,6 +9,10 @@
     text-align: center;
 }
 
+.post-full-meta a {
+    color: inherit;
+}
+
 /* star sky */
 
 #stars {
