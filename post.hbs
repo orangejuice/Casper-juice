@@ -54,10 +54,6 @@ into the {body} of the default.hbs template --}}
                         <span class="toc-title">{{t "Contents"}}</span>
                         <div class="toc"></div>
                         <div id="progress" class="progress">
-                            <!--<svg class="progress-circle" width="100%" height="100%" viewBox="0 0 40 40"
-                                 preserveAspectRatio="xMinYMin meet">
-                                <path d="M50,1a49,49 0 0,1 0,98a49,49 0 0,1 0,-98"/>
-                            </svg>-->
                         </div>
                     </div>
                 </aside>
@@ -202,17 +198,16 @@ into the {body} of the default.hbs template --}}
         from: {color: '#FFEA82', a: 0},
         to: {color: '#ED6A5A', a: 1},
         // Set default step function for all animate calls
-        // step: function (state, circle) {
-        //     circle.path.setAttribute('stroke', state.color);
-        // }
+        step: function (state, circle) {
+            circle.path.setAttribute('stroke', state.color);
+        }
     });
 
-    // bar.animate(1.0);  // Number from 0.0 to 1.0
     const updateProgress = function () {
         const scroll = $(window).scrollTop();
-        const height = $(document).height() - $(window).height();
+        const height = $('article').height() - $(window).height();
 
-        bar.animate(scroll / height);
+        bar.set(scroll / height);// bar.animate(scroll / height);
     };
     $(window).scroll(updateProgress);
 
