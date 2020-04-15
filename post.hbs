@@ -186,7 +186,7 @@ into the {body} of the default.hbs template --}}
         contentSelector: '.post-content',
         hasInnerContainers: true,
         headingLabelCallback: function (string) {
-            $('.post-sidebar-container')[0].style.display = 'block';
+            $('.post-sidebar')[0].style.display = 'block';
             return string;
         }
     });
