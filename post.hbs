@@ -54,13 +54,14 @@ into the {body} of the default.hbs template --}}
                         <span class="toc-title">{{t "Contents"}}</span>
                         <div class="toc"></div>
                     </div>
-                    <div class="scroll-to-top">
-                        <button class="m-icon-button filled in-share progress js-scrolltop" aria-label="Scroll to top">
-                            <span class="icon-arrow-top"></span>
-                            <svg>
-                                <circle class="progress-ring__circle js-progress" fill="transparent" r="0" />
-                            </svg>
-                        </button>
+                    <div class="progress">
+                        <div class="percent"></div>
+                        <svg class="progress-circle" width="100%" height="100%" viewBox="0 0 100 100"
+                             preserveAspectRatio="xMinYMin meet">
+                            <path d="M50,1
+                                a49,49 0 0,1 0,98
+                                a49,49 0 0,1 0,-98"/>
+                        </svg>
                     </div>
                 </aside>
                 <div class="post-content">
@@ -194,85 +195,32 @@ into the {body} of the default.hbs template --}}
     });
 </script>
 <script>
-    let $progressCircle = null
-    let isTicking = false
-    let lastScrollingY = window.pageYOffset
-    let lastWindowHeight = 0
-    let lastDocumentHeight = 0
+    $(function(){
+        var progressPath = document.querySelector('.progress path');
+        var pathLength = progressPath.getTotalLength();
+        progressPath.style.transition = progressPath.style.WebkitTransition =
+                'none';
+        progressPath.style.strokeDasharray = pathLength + ' ' + pathLength;
+        progressPath.style.strokeDashoffset = pathLength;
+        progressPath.getBoundingClientRect();
+        progressPath.style.transition = progressPath.style.WebkitTransition =
+                'stroke-dashoffset 300ms linear';
 
-    function onScrolling() {
-        lastScrollingY = window.pageYOffset
-        requestTicking()
-    }
-
-    function onResizing() {
-        setHeights()
-
-        setTimeout(() => {
-            setCircleStyles()
-            requestTicking()
-        }, 200)
-    }
-
-    function requestTicking() {
-        if (!isTicking) {
-            requestAnimationFrame(updating)
+        // 2. Define updateProgress function
+        var updateProgress = function () {
+            // calculate values
+            var scroll = $(window).scrollTop();
+            var height = $(document).height() - $(window).height();
+            var percent = Math.round(scroll * 100 / height);
+            var progress = pathLength - (scroll * pathLength / height);
+            // update dashOffset
+            progressPath.style.strokeDashoffset = progress;
         }
 
-        isTicking = true
-    }
+        // 3. trigger updateProgress once on load and then on scroll
+        updateProgress();
+        $(window).scroll(updateProgress);
 
-    function updating() {
-        const progressMax = lastDocumentHeight - lastWindowHeight
-        const percent = Math.ceil((lastScrollingY / progressMax) * 100)
-
-        if (percent <= 100) {
-            setProgress(percent)
-        }
-
-        isTicking = false
-    }
-
-    function setHeights() {
-        lastWindowHeight = window.innerHeight
-        lastDocumentHeight = $(document).height()
-    }
-
-    function setCircleStyles() {
-        const svgWidth = $progressCircle.parent().width();
-        const radiusCircle = svgWidth / 2
-        const borderWidth = 3
-
-        $progressCircle.parent().attr('viewBox', `0 0 ${svgWidth} ${svgWidth}`)
-        $progressCircle.attr('stroke-width', borderWidth)
-        $progressCircle.attr('r', radiusCircle - (borderWidth - 1))
-        $progressCircle.attr('cx', radiusCircle)
-        $progressCircle.attr('cy', radiusCircle)
-
-        circumference = radiusCircle * 2 * Math.PI
-
-        $progressCircle[0].style.strokeDasharray = `${circumference} ${circumference}`
-        $progressCircle[0].style.strokeDashoffset = circumference
-    }
-
-    function setProgress(percent) {
-        if (percent <= 100) {
-            const offset = circumference - percent / 100 * circumference
-            $progressCircle[0].style.strokeDashoffset = offset
-        }
-    }
-
-    function prepareProgressCircle() {
-        $progressCircle = $('.js-progress')
-
-        setHeights()
-        setCircleStyles()
-        updating()
-
-        setTimeout(() => {
-            $progressCircle.parent().css('opacity', 1)
-        }, 300)
-    }
-
+    });
 </script>
 {{/contentFor}}
