@@ -207,10 +207,8 @@ into the {body} of the default.hbs template --}}
         const updateProgress = function () {
             const scroll = $(window).scrollTop();
             const height = $('main').height() - $(window).height();
-
-            if(scroll<=height){
-                bar.set(scroll / height);// bar.animate(scroll / height);
-            }
+            let percent = scroll > height ? 1 : scroll / height;
+            bar.set(percent);// bar.animate(scroll / height);
         };
         $(window).scroll(updateProgress);
     }
