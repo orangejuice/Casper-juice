@@ -12,12 +12,15 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px #6c6c6c33,0 0 0 transparent;
 }
 
 .icon-arrow-top {
     height: 17px;
     width: 17px;
     margin-top: -7px;
+    color: #616161;
 }
 
 /* TOC*/
