@@ -49,7 +49,7 @@ into the {body} of the default.hbs template --}}
             <!-- feature image part -->
 
             <section class="post-full-content">
-                <aside class="post-sidebar">
+                <aside class="post-sidebar" style="display: none">
                     <div class="post-sidebar-container">
                         <span class="toc-title">{{t "Contents"}}</span>
                         <div class="toc"></div>
@@ -184,21 +184,19 @@ into the {body} of the default.hbs template --}}
     tocbot.init({
         tocSelector: '.toc',
         contentSelector: '.post-content',
-        hasInnerContainers: true
+        hasInnerContainers: true,
+        headingLabelCallback: function (string) {
+            $('.post-sidebar-container')[0].style.display = 'block';
+            return string;
+        }
     });
 </script>
 <script>
     if($('main').height() > $(window).height()){
         const bar = new ProgressBar.Circle(progress, {
-            // color: '#FFEA82',
-            // trailColor: '#eee',
-            // trailWidth: 0,
-            // duration: 1400,
-            // easing: 'bounce', // easeInOut
             strokeWidth: 10,
-            from: {color: '#FFEA82', a: 0},
-            to: {color: '#ED664C', a: 1},
-            // Set default step function for all animate calls
+            from: {color: '#FFEA82'},
+            to: {color: '#ED664C'},
             step: function (state, circle) {
                 circle.path.setAttribute('stroke', state.color);
             }
@@ -208,9 +206,11 @@ into the {body} of the default.hbs template --}}
             const scroll = $(window).scrollTop();
             const height = $('main').height() - $(window).height();
             let percent = scroll > height ? 1 : scroll / height;
-            bar.set(percent);// bar.animate(scroll / height);
+            bar.set(percent);
         };
         $(window).scroll(updateProgress);
+    } else {
+        $('#progress')[0].style.display = 'none';
     }
 </script>
 {{/contentFor}}
