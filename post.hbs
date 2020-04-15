@@ -194,7 +194,7 @@ into the {body} of the default.hbs template --}}
         trailWidth: 1,
         duration: 1400,
         easing: 'bounce', // easeInOut
-        strokeWidth: 6,
+        strokeWidth: 10,
         from: {color: '#FFEA82', a: 0},
         to: {color: '#ED6A5A', a: 1},
         // Set default step function for all animate calls
@@ -211,6 +211,7 @@ into the {body} of the default.hbs template --}}
     };
     $(window).scroll(updateProgress);
 
+    $('.progress').style.top = $(window).height() - 30 - 120
 
     // $(function(){
     //     var progressPath = document.querySelector('.progress path');

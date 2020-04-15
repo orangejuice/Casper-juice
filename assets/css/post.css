@@ -1,8 +1,10 @@
 /* Progress Circle*/
 
 .progress {
-    height: 50px;
-    width: 50px;
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    overflow: visible;
 }
 
 .progress svg path {
