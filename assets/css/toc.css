@@ -57,9 +57,6 @@ a.toc-link {
 
 .toc-container {
     order: 1;
-}
-
-.toc-container .toc {
     position: sticky;
     top: 70px;
     min-width: 260px;

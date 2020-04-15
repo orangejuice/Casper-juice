@@ -1,5 +1,9 @@
 /* post*/
 
+.post-full-header {
+    padding: 50px;
+}
+
 .post-full-meta {
     text-align: center;
 }
