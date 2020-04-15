@@ -188,60 +188,31 @@ into the {body} of the default.hbs template --}}
     });
 </script>
 <script>
-    const bar = new ProgressBar.Circle(progress, {
-        color: '#FFEA82',
-        trailColor: '#eee',
-        trailWidth: 1,
-        duration: 1400,
-        easing: 'bounce', // easeInOut
-        strokeWidth: 10,
-        from: {color: '#FFEA82', a: 0},
-        to: {color: '#ED664C', a: 1},
-        // Set default step function for all animate calls
-        step: function (state, circle) {
-            circle.path.setAttribute('stroke', state.color);
-        }
-    });
+    if($(window).height() > $('main').height()){
+        const bar = new ProgressBar.Circle(progress, {
+            color: '#FFEA82',
+            trailColor: '#eee',
+            trailWidth: 1,
+            duration: 1400,
+            easing: 'bounce', // easeInOut
+            strokeWidth: 10,
+            from: {color: '#FFEA82', a: 0},
+            to: {color: '#ED664C', a: 1},
+            // Set default step function for all animate calls
+            step: function (state, circle) {
+                circle.path.setAttribute('stroke', state.color);
+            }
+        });
 
-    const updateProgress = function () {
-        const scroll = $(window).scrollTop();
-        const height = $('main').height();//$(window).height();
+        const updateProgress = function () {
+            const scroll = $(window).scrollTop();
+            const height = $('main').height() - $(window).height();
 
-        if(scroll<=height){
-            bar.set(scroll / height);// bar.animate(scroll / height);
-        }
-    };
-    $(window).scroll(updateProgress);
-
-    $(document).ready(function () {
-        $('.progress').style.top = $(window).height() - 30 - 120;
-
-    })
-
-    // $(function(){
-    //     var progressPath = document.querySelector('.progress path');
-    //     var pathLength = progressPath.getTotalLength();
-    //     progressPath.style.transition = progressPath.style.WebkitTransition = 'none';
-    //     progressPath.style.strokeDasharray = pathLength + ' ' + pathLength;
-    //     progressPath.style.strokeDashoffset = pathLength;
-    //     progressPath.getBoundingClientRect();
-    //     progressPath.style.transition = progressPath.style.WebkitTransition =
-    //             'stroke-dashoffset 300ms linear';
-    //
-    //     // 2. Define updateProgress function
-    //     const updateProgress = function () {
-    //         // calculate values
-    //         const scroll = $(window).scrollTop();
-    //         const height = $(document).height() - $(window).height();
-    //         const progress = pathLength - (scroll * pathLength / height);
-    //         // update dashOffset
-    //         progressPath.style.strokeDashoffset = progress;
-    //     };
-    //
-    //     // 3. trigger updateProgress once on load and then on scroll
-    //     updateProgress();
-    //     $(window).scroll(updateProgress);
-    //
-    // });
+            if(scroll<=height){
+                bar.set(scroll / height);// bar.animate(scroll / height);
+            }
+        };
+        $(window).scroll(updateProgress);
+    }
 </script>
 {{/contentFor}}

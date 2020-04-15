@@ -7,13 +7,17 @@
     overflow: visible;
     bottom: 80px;
     float: right;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
 .icon-arrow-top {
-    font-size: 1rem;
-    font-weight: 400;
-    height: 40px;
-    width: 40px;
+    height: 17px;
+    width: 17px;
+    margin-top: -7px;
 }
 
 /* TOC*/
