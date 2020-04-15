@@ -1,19 +1,11 @@
 /* Progress Circle*/
 
 .progress {
-    position: absolute;
+    position: sticky;
     height: 40px;
     width: 40px;
     overflow: visible;
-}
-
-.progress svg path {
-    fill: none;
-}
-
-.progress svg.progress-circle path {
-    stroke: #ED664C;
-    stroke-width: 2;
+    float: right;
 }
 
 /* TOC*/
