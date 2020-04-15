@@ -1,15 +1,12 @@
 /* post*/
 
+/* smaller the padding*/
 .post-full-header {
     padding: 50px;
 }
 
 .post-full-meta {
     text-align: center;
-}
-
-.icon-arrow-top:before {
-    content: "\e903";
 }
 
 /* star sky */

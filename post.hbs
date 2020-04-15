@@ -50,18 +50,15 @@ into the {body} of the default.hbs template --}}
 
             <section class="post-full-content">
                 <aside class="post-sidebar">
-                    <div class="toc-container">
+                    <div class="post-sidebar-container">
                         <span class="toc-title">{{t "Contents"}}</span>
                         <div class="toc"></div>
-                    </div>
-                    <div class="progress">
-                        <div class="percent"></div>
-                        <svg class="progress-circle" width="100%" height="100%" viewBox="0 0 100 100"
-                             preserveAspectRatio="xMinYMin meet">
-                            <path d="M50,1
-                                a49,49 0 0,1 0,98
-                                a49,49 0 0,1 0,-98"/>
-                        </svg>
+                        <div class="progress">
+                            <!--<svg class="progress-circle" width="100%" height="100%" viewBox="0 0 40 40"
+                                 preserveAspectRatio="xMinYMin meet">
+                                <path d="M50,1a49,49 0 0,1 0,98a49,49 0 0,1 0,-98"/>
+                            </svg>-->
+                        </div>
                     </div>
                 </aside>
                 <div class="post-content">
@@ -195,32 +192,55 @@ into the {body} of the default.hbs template --}}
     });
 </script>
 <script>
-    $(function(){
-        var progressPath = document.querySelector('.progress path');
-        var pathLength = progressPath.getTotalLength();
-        progressPath.style.transition = progressPath.style.WebkitTransition =
-                'none';
-        progressPath.style.strokeDasharray = pathLength + ' ' + pathLength;
-        progressPath.style.strokeDashoffset = pathLength;
-        progressPath.getBoundingClientRect();
-        progressPath.style.transition = progressPath.style.WebkitTransition =
-                'stroke-dashoffset 300ms linear';
-
-        // 2. Define updateProgress function
-        var updateProgress = function () {
-            // calculate values
-            var scroll = $(window).scrollTop();
-            var height = $(document).height() - $(window).height();
-            var percent = Math.round(scroll * 100 / height);
-            var progress = pathLength - (scroll * pathLength / height);
-            // update dashOffset
-            progressPath.style.strokeDashoffset = progress;
-        }
-
-        // 3. trigger updateProgress once on load and then on scroll
-        updateProgress();
-        $(window).scroll(updateProgress);
-
+    const bar = new ProgressBar.Circle(container, {
+        color: '#FFEA82',
+        trailColor: '#eee',
+        trailWidth: 1,
+        duration: 1400,
+        easing: 'bounce', // easeInOut
+        strokeWidth: 6,
+        from: {color: '#FFEA82', a: 0},
+        to: {color: '#ED6A5A', a: 1},
+        // Set default step function for all animate calls
+        // step: function (state, circle) {
+        //     circle.path.setAttribute('stroke', state.color);
+        // }
     });
+
+    // bar.animate(1.0);  // Number from 0.0 to 1.0
+    const updateProgress = function () {
+        const scroll = $(window).scrollTop();
+        const height = $(document).height() - $(window).height();
+
+        bar.animate(scroll / height);
+    };
+    $(window).scroll(updateProgress);
+
+
+    // $(function(){
+    //     var progressPath = document.querySelector('.progress path');
+    //     var pathLength = progressPath.getTotalLength();
+    //     progressPath.style.transition = progressPath.style.WebkitTransition = 'none';
+    //     progressPath.style.strokeDasharray = pathLength + ' ' + pathLength;
+    //     progressPath.style.strokeDashoffset = pathLength;
+    //     progressPath.getBoundingClientRect();
+    //     progressPath.style.transition = progressPath.style.WebkitTransition =
+    //             'stroke-dashoffset 300ms linear';
+    //
+    //     // 2. Define updateProgress function
+    //     const updateProgress = function () {
+    //         // calculate values
+    //         const scroll = $(window).scrollTop();
+    //         const height = $(document).height() - $(window).height();
+    //         const progress = pathLength - (scroll * pathLength / height);
+    //         // update dashOffset
+    //         progressPath.style.strokeDashoffset = progress;
+    //     };
+    //
+    //     // 3. trigger updateProgress once on load and then on scroll
+    //     updateProgress();
+    //     $(window).scroll(updateProgress);
+    //
+    // });
 </script>
 {{/contentFor}}

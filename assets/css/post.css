@@ -1,16 +1,8 @@
 /* Progress Circle*/
 
-.content {
-    width: 40%;
-    margin: 60px auto;
-}
-
 .progress {
-    position: fixed;
-    right: 10px;
-    top: 10px;
-    height: 100px;
-    width: 100px;
+    height: 50px;
+    width: 50px;
 }
 
 .progress svg path {
@@ -86,7 +78,7 @@ a.toc-link {
     font-size: 1.6rem;
 }
 
-.toc-container {
+.post-sidebar-container {
     font-size: 1.5rem;
     position: sticky;
     top: 120px;
