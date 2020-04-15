@@ -8,6 +8,10 @@
     text-align: center;
 }
 
+.icon-arrow-top:before {
+    content: "\e903";
+}
+
 /* star sky */
 
 #stars {

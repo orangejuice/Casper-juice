@@ -6,7 +6,7 @@ into the {body} of the default.hbs template --}}
 {{#contentFor "stylesheet"}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/themes/prism-tomorrow.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/plugins/line-numbers/prism-line-numbers.min.css"/>
-    <link rel="stylesheet" href="{{asset "built/toc.css"}}"/>
+    <link rel="stylesheet" href="{{asset "built/post.css"}}"/>
 {{/contentFor}}
 
 <header class="site-header">
@@ -55,7 +55,12 @@ into the {body} of the default.hbs template --}}
                         <div class="toc"></div>
                     </div>
                     <div class="scroll-to-top">
-
+                        <button class="m-icon-button filled in-share progress js-scrolltop" aria-label="Scroll to top">
+                            <span class="icon-arrow-top"></span>
+                            <svg>
+                                <circle class="progress-ring__circle js-progress" fill="transparent" r="0" />
+                            </svg>
+                        </button>
                     </div>
                 </aside>
                 <div class="post-content">
@@ -187,5 +192,87 @@ into the {body} of the default.hbs template --}}
         contentSelector: '.post-content',
         hasInnerContainers: true
     });
+</script>
+<script>
+    let $progressCircle = null
+    let isTicking = false
+    let lastScrollingY = window.pageYOffset
+    let lastWindowHeight = 0
+    let lastDocumentHeight = 0
+
+    function onScrolling() {
+        lastScrollingY = window.pageYOffset
+        requestTicking()
+    }
+
+    function onResizing() {
+        setHeights()
+
+        setTimeout(() => {
+            setCircleStyles()
+            requestTicking()
+        }, 200)
+    }
+
+    function requestTicking() {
+        if (!isTicking) {
+            requestAnimationFrame(updating)
+        }
+
+        isTicking = true
+    }
+
+    function updating() {
+        const progressMax = lastDocumentHeight - lastWindowHeight
+        const percent = Math.ceil((lastScrollingY / progressMax) * 100)
+
+        if (percent <= 100) {
+            setProgress(percent)
+        }
+
+        isTicking = false
+    }
+
+    function setHeights() {
+        lastWindowHeight = window.innerHeight
+        lastDocumentHeight = $(document).height()
+    }
+
+    function setCircleStyles() {
+        const svgWidth = $progressCircle.parent().width();
+        const radiusCircle = svgWidth / 2
+        const borderWidth = 3
+
+        $progressCircle.parent().attr('viewBox', `0 0 ${svgWidth} ${svgWidth}`)
+        $progressCircle.attr('stroke-width', borderWidth)
+        $progressCircle.attr('r', radiusCircle - (borderWidth - 1))
+        $progressCircle.attr('cx', radiusCircle)
+        $progressCircle.attr('cy', radiusCircle)
+
+        circumference = radiusCircle * 2 * Math.PI
+
+        $progressCircle[0].style.strokeDasharray = `${circumference} ${circumference}`
+        $progressCircle[0].style.strokeDashoffset = circumference
+    }
+
+    function setProgress(percent) {
+        if (percent <= 100) {
+            const offset = circumference - percent / 100 * circumference
+            $progressCircle[0].style.strokeDashoffset = offset
+        }
+    }
+
+    function prepareProgressCircle() {
+        $progressCircle = $('.js-progress')
+
+        setHeights()
+        setCircleStyles()
+        updating()
+
+        setTimeout(() => {
+            $progressCircle.parent().css('opacity', 1)
+        }, 300)
+    }
+
 </script>
 {{/contentFor}}
