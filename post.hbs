@@ -188,7 +188,7 @@ into the {body} of the default.hbs template --}}
     });
 </script>
 <script>
-    if($(window).height() > $('main').height()){
+    if($('main').height() > $(window).height()){
         const bar = new ProgressBar.Circle(progress, {
             color: '#FFEA82',
             trailColor: '#eee',
