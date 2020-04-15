@@ -10,10 +10,10 @@
 }
 
 .icon-arrow-top {
-    content: "\E903";
     font-size: 1rem;
     font-weight: 400;
-    text-align: center;
+    height: 40px;
+    width: 40px;
 }
 
 /* TOC*/
