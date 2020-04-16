@@ -210,7 +210,11 @@ into the {body} of the default.hbs template --}}
         };
         $(window).scroll(updateProgress);
     } else {
-        $('#progress')[0].style.display = 'none';
+        $('#progress').style.display = 'none';
     }
+
+    $('#progress').click(function () {
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    });
 </script>
 {{/contentFor}}
