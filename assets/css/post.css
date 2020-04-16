@@ -14,6 +14,7 @@
     align-items: center;
     border-radius: 50%;
     box-shadow: 0 2px 4px #6c6c6c33,0 0 0 transparent;
+    cursor: pointer;
 }
 
 .icon-arrow-top {
@@ -95,10 +96,10 @@ a.toc-link {
 }
 
 .toc-title {
-    margin-left: -5px;
+    margin-left: 8px;
     font-size: 1.4em;
     font-family: Georgia, serif, Microsoft JhengHei;
-    cursor: pointer;
+    cursor: default;
 }
 
 .post-sidebar .toc {
