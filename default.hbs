@@ -33,8 +33,10 @@
             <div class="site-footer-content inner">
                 <section class="copyright"><a href="{{@site.url}}">{{@site.title}}</a> &copy; {{date format="YYYY"}}</section>
                 <nav class="site-footer-nav">
-                    <a href='https://ghost.org/'>Ghost</a>
-                    <a href="https://github.com/orangejuice/Casper-juice">Casper-juice</a>
+                    <a class="site-footer-icon" href='https://ghost.org/' title="{{t "Powered by"}}"
+                       target="_blank" rel="noopener">{{> "icons/rocket"}}Ghost</a>
+                    <a class="site-footer-icon" href="https://github.com/orangejuice/Casper-juice" title="{{t "Theme"}}"
+                       target="_blank" rel="noopener">{{> "icons/brush"}}Casper-juice</a>
                     {{#if @site.facebook}}<a href="{{facebook_url @site.facebook}}" target="_blank" rel="noopener">Facebook</a>{{/if}}
                     {{#if @site.twitter}}<a href="{{twitter_url @site.twitter}}" target="_blank" rel="noopener">Twitter</a>{{/if}}
                     <a class="site-footer-icon" href="https://feedly.com/i/subscription/feed/{{@site.url}}/rss/" title="RSS"
