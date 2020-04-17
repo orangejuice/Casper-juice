@@ -84,10 +84,14 @@
 
 /* footer */
 
+.site-nav a {
+    transition: all .2s ease-in-out;
+}
+
 .site-footer-icon svg {
     margin-bottom: 1px;
-    height: 2.1rem;
-    fill: #fff;
+    height: 1.8rem;
+    fill: currentColor;
     position: relative;
-    bottom: 3px;
+    bottom: 1px;
 }
