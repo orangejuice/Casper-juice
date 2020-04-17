@@ -81,3 +81,13 @@
         transform: translateY(-500px)
     }
 }
+
+/* footer */
+
+.site-footer-icon svg {
+    margin-bottom: 1px;
+    height: 2.1rem;
+    fill: #fff;
+    position: relative;
+    bottom: 3px;
+}
