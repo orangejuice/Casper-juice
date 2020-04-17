@@ -33,8 +33,8 @@
             <div class="site-footer-content inner">
                 <section class="copyright"><a href="{{@site.url}}">{{@site.title}}</a> &copy; {{date format="YYYY"}}</section>
                 <nav class="site-footer-nav">
-                    <span>{{t "Powered by {who}" who="<a href=\"https://ghost.org/\">Ghost</a>"}}</span>
-                    <span>{{t "Theme"}}<a href="{{@site.url}}">Casper-juice</a></span>
+                    {{{t "Powered by {who}" who="<a href='https://ghost.org/'>Ghost</a>"}}} &
+                    {{t "Theme"}}<a href="{{@site.url}}"> Casper-juice</a>
                     {{#if @site.facebook}}<a href="{{facebook_url @site.facebook}}" target="_blank" rel="noopener">Facebook</a>{{/if}}
                     {{#if @site.twitter}}<a href="{{twitter_url @site.twitter}}" target="_blank" rel="noopener">Twitter</a>{{/if}}
                     <a class="site-footer-icon" href="https://feedly.com/i/subscription/feed/{{@site.url}}/rss/" title="RSS"
