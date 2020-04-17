@@ -87,13 +87,13 @@
 
 /* footer */
 
-/* fix - remove extra margin of the first and second a*/
+/* fix - remove extra margin of the first and second a
 .site-footer-nav a:first-child, a:nth-child(2) {
     margin-left: 0;
 }
 .site-footer-nav a:first-child:before, a:nth-child(2):before {
     display: none;
-}
+}*/
 
 .site-nav a {
     transition: all .2s ease-in-out;
