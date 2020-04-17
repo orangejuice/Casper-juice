@@ -1,7 +1,9 @@
 {
   "Home": "Home",
   "Tech": "Tech",
-  "Life": "life",
+  "Life": "Life",
+  "Powered by {who}": "Powered by {who}",
+  "Theme": "Theme",
   "% min read": "% min read",
   "% posts": "% posts",
   "1 min read": "1 min read",

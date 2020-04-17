@@ -2,6 +2,8 @@
   "Home": "主页",
   "Tech": "技术",
   "Life": "生活",
+  "Powered by {who}": "由 {who} 驱动",
+  "Theme": "主题",
   "% min read": "阅读预计需要%分钟",
   "% posts": "%篇文章",
   "1 min read": "阅读预计需要1分钟",
