@@ -95,8 +95,19 @@
     display: none;
 }*/
 
-.site-nav a {
+.site-footer-nav a {
     transition: all .2s ease-in-out;
+}
+
+.site-footer-nav a:before {
+    content: "·";
+    top: unset;
+    display: unset;
+    width: unset;
+    height: unset;
+    background: unset;
+    border-radius: unset;
+    color: #fff;
 }
 
 .site-footer-icon svg {
