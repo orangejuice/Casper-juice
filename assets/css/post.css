@@ -1,3 +1,16 @@
+
+.post-full-header {
+    padding: 50px;
+}
+
+.post-full-meta {
+    text-align: center;
+}
+
+.post-full-meta a {
+    color: inherit;
+}
+
 /* Progress Circle*/
 
 .progress {
@@ -80,6 +93,7 @@ a.toc-link {
     width: 2px
 }
 
+/* default theme color #26a8ed*/
 .is-active-link::before {
     background-color: #ED664C;
 }

@@ -1,24 +1,26 @@
-/* post*/
-
-/* smaller the padding*/
-.post-full-header {
-    padding: 50px;
-}
-
-.post-full-meta {
-    text-align: center;
-}
-
-.post-full-meta a {
-    color: inherit;
-}
 
 .site-header-background.no-image {
     background: radial-gradient(ellipse at bottom, #1f2f42 0%, #090a0f 100%);
 }
 
+/* fix - remove an extra box shadow*/
 .site-header-background:not(.responsive-header-img) .site-nav-left-wrapper:after {
     content: unset;
+}
+
+/* site-archive */
+
+.site-archive-header .site-header-background.no-image {
+    background: radial-gradient(ellipse at left bottom, #1f2f42 0%, #090a0f 100%);
+}
+
+.site-archive-header .site-title {
+    font-family: monospace;
+    color: #c5d2d9;
+}
+
+.site-archive-header .no-image .site-header-content {
+    border-bottom: unset;
 }
 
 /* star sky */

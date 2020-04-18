@@ -1,7 +1,4 @@
-.site-header-background.no-image {
-    background: radial-gradient(ellipse at left bottom, #1f2f42 0%, #090a0f 100%);
-}
-
+/* use inline nav*/
 .site-archive-header .site-header-background {
     margin-top: 0;
 }
@@ -10,17 +7,8 @@
     display: none;
 }
 
-.site-archive-header .site-title {
-    font-family: monospace, Microsoft JhengHei;
-    color: #c5d2d9;
-}
-
 .no-image .author-social-link a {
     color: inherit;
-}
-
-.site-archive-header .no-image .site-header-content {
-    border-bottom: unset;
 }
 
 .author-profile-image {
