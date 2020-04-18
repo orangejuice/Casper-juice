@@ -15,3 +15,8 @@
 .no-image .author-social-link a {
     color: inherit;
 }
+
+.site-archive-header .no-image .site-header-content {
+    border-bottom: unset;
+    padding-top: 10vw;
+}
