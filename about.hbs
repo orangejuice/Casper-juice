@@ -1,6 +1,10 @@
 {{!< default}}
 {{!-- The tag above means - insert everything in this file into the {body} of the default.hbs template --}}
 
+{{#contentFor "stylesheet"}}
+    <link rel="stylesheet" href="{{asset "built/about.css"}}"/>
+{{/contentFor}}
+
 {{#author}}
 {{!-- Everything inside the #author tags pulls data from the author --}}
 
