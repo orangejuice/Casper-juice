@@ -14,12 +14,12 @@
     background: radial-gradient(ellipse at left bottom, #1f2f42 0%, #090a0f 100%);
 }
 
-.site-archive-header .site-title {
+.site-archive-header .site-header-background.no-image .site-title {
     font-family: monospace;
     color: #c5d2d9;
 }
 
-.site-archive-header .no-image .site-header-content {
+.site-archive-header .site-header-background.no-image .site-header-content {
     border-bottom: unset;
 }
 
