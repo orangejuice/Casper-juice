@@ -14,7 +14,7 @@
 }
 
 .site-header-background.no-image {
-    background: radial-gradient(ellipse at left bottom, #1f2f42 0%, #090a0f 100%);
+    background: radial-gradient(ellipse at bottom, #1f2f42 0%, #090a0f 100%);
 }
 
 .site-header-background:not(.responsive-header-img) .site-nav-left-wrapper:after {
@@ -89,7 +89,7 @@
     float: left;
     bottom: 0;
     right: 0;
-    animation: twink-anim 50s linear infinite;
+    animation: twink-anim 100s linear infinite;
 }
 
 @keyframes star-anim {
