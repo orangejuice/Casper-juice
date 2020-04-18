@@ -182,40 +182,41 @@ into the {body} of the default.hbs template --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js"></script>
 <script>
-    tocbot.init({
-        tocSelector: '.toc',
-        contentSelector: '.post-content',
-        hasInnerContainers: true,
-        headingLabelCallback: function (string) {
-            $('.post-sidebar')[0].style.display = 'block';
-            return string;
-        }
-    });
-</script>
-<script>
-    if($('main').height() > $(window).height()){
-        const bar = new ProgressBar.Circle(progress, {
-            strokeWidth: 10,
-            from: {color: '#FFEA82'},
-            to: {color: '#ED664C'},
-            step: function (state, circle) {
-                circle.path.setAttribute('stroke', state.color);
+    $(document).ready(function () {
+        tocbot.init({
+            tocSelector: '.toc',
+            contentSelector: '.post-content',
+            hasInnerContainers: true,
+            headingLabelCallback: function (string) {
+                $('.post-sidebar')[0].style.display = 'block';
+                return string;
             }
         });
 
-        const updateProgress = function () {
-            const scroll = $(window).scrollTop();
-            const height = $('main').height() - $(window).height();
-            let percent = scroll > height ? 1 : scroll / height;
-            bar.set(percent);
-        };
-        $(window).scroll(updateProgress);
-    } else {
-        $('#progress').style.display = 'none';
-    }
+        if ($('main').height() > $(window).height()) {
+            const bar = new ProgressBar.Circle(progress, {
+                strokeWidth: 10,
+                from: {color: '#FFEA82'},
+                to: {color: '#ED664C'},
+                step: function (state, circle) {
+                    circle.path.setAttribute('stroke', state.color);
+                }
+            });
 
-    $('#progress').click(function () {
-        window.scrollTo({top: 0, behavior: 'smooth'});
+            const updateProgress = function () {
+                const scroll = $(window).scrollTop();
+                const height = $('main').height() - $(window).height();
+                let percent = scroll > height ? 1 : scroll / height;
+                bar.set(percent);
+            };
+            $(window).scroll(updateProgress);
+        } else {
+            $('#progress').style.display = 'none';
+        }
+
+        $('#progress').click(function () {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        });
     });
 </script>
 {{/contentFor}}
