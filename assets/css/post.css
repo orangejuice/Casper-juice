@@ -11,6 +11,21 @@
     color: inherit;
 }
 
+/* fix default 1fr .2fr which may overflow*/
+.post-full-content {
+    grid-template-columns: 80% 20%;
+}
+
+/* fix pictures overflow*/
+.kg-gallery-container {
+    width: unset;
+}
+
+/* fix font size defined in prism */
+.post-full-content pre {
+    font-size: 1.4rem !important;
+}
+
 /* Progress Circle*/
 
 .progress {
@@ -167,10 +182,10 @@ ol.toc-list {
 
 @media (max-width: 1170px) {
     .post-sidebar {
-        display: none;
+        display: none !important;
     }
     .post-full-content {
-        grid-template-columns: none;
+        grid-template-columns: unset;
     }
     .progress {
         display: none;
