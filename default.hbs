@@ -39,6 +39,8 @@
                     {{#if @site.facebook}}<a href="{{facebook_url @site.facebook}}" target="_blank" rel="noopener">Facebook</a>{{/if}}
                     {{#if @site.twitter}}<a href="{{twitter_url @site.twitter}}" target="_blank" rel="noopener">Twitter</a>{{/if}}
                     <a class="site-footer-icon" href="https://feedly.com/i/subscription/feed/{{@site.url}}/rss/"
+                       title="Feedly" target="_blank" rel="noopener">{{> "icons/feedly"}}Feedly</a>
+                    <a class="site-footer-icon" href="{{@site.url}}/rss/"
                        title="RSS" target="_blank" rel="noopener">{{> "icons/rss"}}RSS</a>
                 </nav>
             </div>
