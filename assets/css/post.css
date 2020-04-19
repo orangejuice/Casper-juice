@@ -17,7 +17,7 @@
 }
 
 /* fix font and background defined in prism */
-.post-full-content code, .post-full-content pre, .post-full-content span {
+.post-full-content code, .post-full-content code pre, .post-full-content code span {
     font-size: 1.4rem !important;
     text-shadow: unset !important;
     background: #f5f6f7 !important;
@@ -50,7 +50,12 @@
     position: absolute;
 }
 
-/* TOC*/
+/* TOC */
+
+/* fix 0 margin top defined in theme*/
+.toc li:first-child {
+    margin-top: unset;
+}
 
 .toc {
     overflow-y: auto
