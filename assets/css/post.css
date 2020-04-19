@@ -11,11 +11,6 @@
     color: inherit;
 }
 
-/* fix default 1fr .2fr which may overflow*/
-.post-full-content {
-    grid-template-columns: 80% 20%;
-}
-
 /* fix pictures overflow*/
 .kg-gallery-container {
     width: unset;
@@ -65,7 +60,8 @@
 }
 
 .toc > .toc-list li {
-    list-style: none
+    list-style: none;
+    white-space: nowrap;
 }
 
 .toc-list {
@@ -108,7 +104,7 @@ a.toc-link {
     width: 2px
 }
 
-/* default theme color #26a8ed*/
+/* default color #3eb0ef*/
 .is-active-link::before {
     background-color: #ED664C;
 }
@@ -145,7 +141,8 @@ body {
 
 .post-full-content {
     display: grid;
-    grid-template-columns: 1fr 0.2fr;
+    grid-template-columns: 80% 20%;
+    grid-gap: 20px;
     padding: 0 0 6vw;
     margin: 0;
 }
