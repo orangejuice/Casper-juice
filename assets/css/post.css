@@ -17,7 +17,7 @@
 }
 
 /* fix font and background defined in prism */
-.post-full-content code, pre, span {
+.post-full-content code, .post-full-content pre, .post-full-content span {
     font-size: 1.4rem !important;
     text-shadow: unset !important;
     background: #f5f6f7 !important;
