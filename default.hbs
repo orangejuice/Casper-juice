@@ -127,6 +127,18 @@
             });
         });
     </script>
+    <script>
+        $('a').each(function() {
+            var a = new RegExp('/' + window.location.host + '/');
+            if(!a.test(this.href)) {
+                $(this).click(function(event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    window.open(this.href, '_blank');
+                });
+            }
+        });
+    </script>
 
     {{!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. --}}
     {{{block "scripts"}}}
