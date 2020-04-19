@@ -17,9 +17,10 @@
 }
 
 /* fix font size defined in prism */
-.post-full-content code[class*=language-], pre[class*=language-] {
+.post-full-content code[class*=language-], pre {
     font-size: 1.4rem !important;
     text-shadow: unset;
+    background: #f5f6f7;
 }
 
 /* Progress Circle*/
