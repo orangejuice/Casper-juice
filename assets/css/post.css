@@ -141,7 +141,6 @@ body {
 
 .post-full-content {
     display: grid;
-    grid-template-columns: 80% 20%;
     grid-gap: 20px;
     padding: 0 0 6vw;
     margin: 0;
