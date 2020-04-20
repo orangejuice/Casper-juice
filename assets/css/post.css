@@ -62,12 +62,12 @@
     margin-top: .5em;
 }
 
-.toc .toc-list {
-    overflow-x: visible;
-    overflow-y: hidden;
+.toc {
+    overflow-y: auto
 }
 
 .toc > .toc-list {
+    overflow: hidden;
     position: relative
 }
 
@@ -141,7 +141,7 @@ a.toc-link {
 }
 
 .post-sidebar .toc {
-    min-width: 260px;
+    min-width: 360px;
     line-height: 1.6em;
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif, Microsoft JhengHei;
