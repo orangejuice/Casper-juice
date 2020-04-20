@@ -11,8 +11,9 @@
     color: inherit;
 }
 
+/* fix default 0 margin */
 .post-full-content h2, .post-full-content h3, .post-full-content h4 {
-    margin: 1.5em 0 .5em;
+    margin: 1.5em 0 .5em !important;
 }
 
 /* fix pictures overflow*/
