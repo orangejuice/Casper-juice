@@ -1,6 +1,19 @@
-* {
+/* global style */
+*, *:before {
     transition: all .2s ease;
 }
+
+a {
+    transition: .2s;
+    border-bottom: 1px solid transparent;
+}
+
+a:hover {
+    text-decoration: none;
+    border-color: currentColor;
+}
+
+/* site header */
 
 .site-header-background.no-image {
     background: radial-gradient(ellipse at bottom, #1f2f42 0%, #090a0f 100%);
