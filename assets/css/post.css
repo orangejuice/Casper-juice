@@ -67,7 +67,8 @@
 }
 
 .toc > .toc-list {
-    overflow: hidden;
+    overflow-x: visible;
+    overflow-y: hidden;
     position: relative
 }
 
