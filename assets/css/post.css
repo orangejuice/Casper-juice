@@ -194,7 +194,7 @@ ol.toc-list {
         display: none !important;
     }
     .post-full-content {
-        grid-template-columns: unset;
+        grid-template-columns: unset !important;
     }
     .progress {
         display: none;
