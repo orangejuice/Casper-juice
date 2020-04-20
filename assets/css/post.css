@@ -62,13 +62,12 @@
     margin-top: .5em;
 }
 
-.toc {
-    overflow-y: auto
+.toc .toc-list {
+    overflow-x: visible;
+    overflow-y: hidden;
 }
 
 .toc > .toc-list {
-    overflow-x: visible;
-    overflow-y: hidden;
     position: relative
 }
 
