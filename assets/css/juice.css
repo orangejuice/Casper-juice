@@ -1,3 +1,6 @@
+* {
+    transition: all .2s ease;
+}
 
 .site-header-background.no-image {
     background: radial-gradient(ellipse at bottom, #1f2f42 0%, #090a0f 100%);
@@ -123,10 +126,7 @@
     display: none;
 }*/
 
-/*.site-footer-nav a {
-    transition: all .2s ease-in-out;
-}
-
+/*
 .site-footer-nav a:before {
     content: "·";
     top: unset;
@@ -137,6 +137,10 @@
     border-radius: unset;
     color: #fff;
 }*/
+
+.site-footer-nav a {
+    transition: all .2s ease-in-out;
+}
 
 .site-footer-icon svg {
     margin-bottom: 1px;
