@@ -186,6 +186,7 @@ into the {body} of the default.hbs template --}}
         tocSelector: '.toc',
         contentSelector: '.post-content',
         hasInnerContainers: true,
+        headingSelector: 'h2, h3, h4',
         headingLabelCallback: function (string) {
             $('.post-sidebar').css('display', 'block');
             $('.post-full-content').css("grid-template-columns", "80% 20%");
