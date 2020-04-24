@@ -169,13 +169,15 @@ ol.toc-list {
 }
 
 .post-content h2,
-.post-content h3 {
+.post-content h3,
+.post-content h4 {
     outline: none;
 }
 
 /* Offset headings from fixed header */
 .post-content h2::before,
-.post-content h3::before {
+.post-content h3::before,
+.post-content h4::before {
     display: block;
     content: " ";
     height: 84px;
